@@ -29,16 +29,18 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump") && controller2D.m_Grounded == true)
         {
             jump = true;
-            animator.SetBool("IsJumping", true);
+            //animator.SetBool("IsJumping", true);
+            //animator.SetBool("IsJumping", false);
+            animator.SetTrigger("OnJumping");
         }
     }
 
     public void OnLanding()
     {
-        animator.SetBool("IsJumping", false);
+        animator.SetTrigger("OnLanding");
     }
 
     void FixedUpdate()

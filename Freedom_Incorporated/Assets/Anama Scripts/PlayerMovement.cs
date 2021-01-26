@@ -32,8 +32,6 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetButtonDown("Jump") && controller2D.m_Grounded == true)
         {
             jump = true;
-            //animator.SetBool("IsJumping", true);
-            //animator.SetBool("IsJumping", false);
             animator.SetTrigger("OnJumping");
         }
     }

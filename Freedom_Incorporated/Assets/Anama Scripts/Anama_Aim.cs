@@ -14,6 +14,10 @@ public class Anama_Aim : MonoBehaviour
 
     public GameObject projectile;
 
+    public Transform shootPos;
+
+    bool canShoot;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -22,6 +26,7 @@ public class Anama_Aim : MonoBehaviour
 
         anamaArm.transform.eulerAngles = transform.eulerAngles + new Vector3(0f, 0f, 0f);
 
+        canShoot = true;
     }
 
     void Update()
@@ -63,13 +68,16 @@ public class Anama_Aim : MonoBehaviour
 
     void ShootProjectile()
     {
-        if(Input.GetAxis("Shoot")>0)
+        if (Input.GetAxis("Shoot") > 0 && canShoot == true) 
         {
-            GameObject bullet = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
+            GameObject bullet = Instantiate(projectile, 
+                shootPos.transform.position, anamaArm.transform.rotation) as GameObject;
 
-            bullet.GetComponent<Rigidbody2D>().AddForce(transform.forward * 10);
+            //bullet.GetComponent<Rigidbody2D>().AddForce(anamaArm.transform.forward * 10);
 
+            //canShoot = false;
 
+            //set up shooting timer
         }
 
 

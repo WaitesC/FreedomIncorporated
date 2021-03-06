@@ -18,6 +18,8 @@ public class Anama_Aim : MonoBehaviour
 
     bool canShoot;
 
+    
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -33,9 +35,12 @@ public class Anama_Aim : MonoBehaviour
     {
         ArmRotation();
 
+        
+
         //ShootProjectile();
     }
 
+    
 
     void ArmRotation()
     {
@@ -80,9 +85,6 @@ public class Anama_Aim : MonoBehaviour
             //set up shooting timer
         }
 
-
-
-
-
     }
+
 }
